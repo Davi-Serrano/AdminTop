@@ -6,8 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read</title>
 </head>
+<style>
+    body{
+        display: flex;
+        justify-content: space-around;
+    }
+    table, th{
+        border: 1px solid black;
+    }
+</style>
 <body>
     <table class="box">
+        <h1>Crédito</h1>
         <% credito.forEach(function(conta){ %>
             <tr class="box">
                 <th><%= conta.Descricao %></th>
@@ -17,6 +27,7 @@
     </table>
 
     <table class="box">
+        <h1>Débito</h1>
         <% debito.forEach(function(conta){ %>
             <tr class="box">
                 <th><%= conta.Descricao %></th>
