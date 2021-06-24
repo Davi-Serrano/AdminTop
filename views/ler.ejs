@@ -14,14 +14,20 @@
     table, th{
         border: 1px solid black;
     }
+    .credit{
+        background-color: red;
+    }
+    .debit{
+        background-color: green;
+    }
 </style>
-<body>
+<body onload="ale()">
     <table class="box">
         <h1>Crédito</h1>
         <% credito.forEach(function(conta){ %>
             <tr class="box">
                 <th><%= conta.Descricao %></th>
-                <th><%= conta.Valor %></th>           
+                <th class="credit"><%= conta.Valor %></th>           
             </tr>
         <% }); %>
     </table>
@@ -31,11 +37,21 @@
         <% debito.forEach(function(conta){ %>
             <tr class="box">
                 <th><%= conta.Descricao %></th>
-                <th><%= conta.Valor %></th>           
+                <th class="debit"><%= conta.Valor %></th>           
             </tr>
         <% }); %>
     </table>
 
+<script>
 
+    function ale(){
+        var valores = document.getElementsByClassName("credit")
+            for (i = 0; i < valores.length; i++) {
+                console.log( valores[i].innerHTML);
+    }
+}
+
+
+</script>
 </body>
 </html>
