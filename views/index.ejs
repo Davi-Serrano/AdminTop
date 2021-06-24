@@ -7,10 +7,20 @@
     <title>Create</title>
 </head>
 <body>
+    
+    <h1> Depositar Crédito </h1>
 
     <form action="/show" method="POST">
-        <input type="text" placeholder="Descrição" name="descricao">
-        <input type="number" placeholder="Valor em R$" name="valor">
+        <input type="text" placeholder="Descrição" name="descricaoCred">
+        <input type="number" placeholder="Valor em R$" min="1" name="valorCred">
+        <button type="submit">Submit</button>
+    </form> 
+
+    <h1> Depositar Débito </h1>
+
+    <form action="/save" method="POST">
+        <input type="text" placeholder="Descrição" name="descricaoDeb">
+        <input type="number" placeholder="Valor em R$" min="1" name="valorDeb">
         <button type="submit">Submit</button>
     </form> 
     
