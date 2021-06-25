@@ -47,8 +47,7 @@ router.post("/save", (req, res) => {
 
 router.get('/ler',  (req, res) => {
  
-    
-    
+
     Debito.find().lean().then((debito) =>{
     
         Credito.find().lean().then((credito) =>{

@@ -56,36 +56,64 @@
             </tr>
             <% }); %>
         </table>
+
+        <h3 id="somad">Aqui vai débito: </h3>
+        <h1 id="bola"> Balanço: </h1>
     </div>
+
+
 
 <script>
 
     function ale(){
-        var valores = document.getElementsByClassName("credit")
-        var elementos = []
-        var ab = []
+        var credito = document.getElementsByClassName("credit")
+        var arrayC = []
+        var arrayCredito = []
     
         
-        for (i = 0; i < valores.length; i++) {   
+        for (i = 0; i < credito.length; i++) {   
             
-            elementos.push(valores[i].innerHTML)
-            ab.push(parseInt(elementos[i]))
+            arrayC.push(credito[i].innerHTML)
+            arrayCredito.push(parseInt(arrayC[i]))
             
         }
             
-        var c = ab.reduce(function(a , b) {
+        var creditoTotal = arrayCredito.reduce(function(a , b) {
             return a + b
         }, 0)
 
-        console.log(c)
 
-        const d = document.getElementById("somac")
+        const somaCredito = document.getElementById("somac")
 
-        d.innerText += c
+        somaCredito.innerText += creditoTotal
 
+        var debito = document.getElementsByClassName("debit")
+        var arrayD = []
+        var arrayDebito = []
+        
+        
+        for (i = 0; i < debito.length; i++) {   
+            
+            arrayD.push(debito[i].innerHTML)
+            arrayDebito.push(parseInt(arrayD[i]))
+            
+        }
+            
+        var debitoTotal = arrayDebito.reduce(function(a , b) {
+            return a + b
+        }, 0)
+        
+        const somaDebito = document.getElementById("somad")
+        
+        somaDebito.innerText += debitoTotal
+
+
+
+        var faisca = document.getElementById("bola")
+
+        faisca.innerText += creditoTotal - debitoTotal
 
 }
-
 
 
 </script>
