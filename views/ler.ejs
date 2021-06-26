@@ -29,17 +29,20 @@
     
     <div class="left">
 
+        <form action="/del" method="POST">
         <table class="box">
             <h1>Crédito</h1>
         <% credito.forEach(function(conta){ %>
             <tr class="box">
+                <input type="hidden" name="id" value="<%= conta._id %>">
+               <th> <button type="submit"> Deletar</button> </th>
                 <th><%= conta.Descricao %></th>
                 <th class="credit"><%= conta.Valor %></th>           
             </tr>
+                    
             <% }); %>
             
         </table>
-        
         <h3 id="somac">Aqui vai soma valor: </h3>
         
     </div>
