@@ -13,10 +13,11 @@
         justify-content: space-around;
     }
 
-    table{
+    table {
         border: 1px solid black;
     }
-    th{
+
+    th {
         border-bottom: 1px solid black;
     }
 
@@ -37,9 +38,9 @@
 <body onload="calcula()">
 
     <div class="left">
-      
+
         <!-- Deleta Crédito -->
-      
+
         <form action="/delC" method="POST">
             <table class="box">
                 <h1>Crédito</h1>
@@ -64,9 +65,9 @@
 
     <div class="rigth">
 
-      <!-- Deleta Débito -->
+        <!-- Deleta Débito -->
 
-        <form action="/delB" method="POST">
+        <form action="/delD" method="POST">
             <table class="box">
                 <h1>Débito</h1>
                 <% debito.forEach(function(conta){ %>
@@ -88,11 +89,38 @@
     </div>
 
 
+    <div class="rigth">
+
+        <!-- Deleta PL -->
+
+        <form action="/delPL" method="POST">
+            <table class="box">
+                <h1>Patrimônio Líquido</h1>
+                <% pl.forEach(function(conta){ %>
+                <tr class="box">
+                    <input type="hidden" name="id" value="<%= conta._id %>">
+                    <th> <button type="submit"> Deletar</button> </th>
+                    <th><%= conta.Descricao %></th>
+                    <th class="pl"><%= conta.Valor %></th>
+                </tr>
+                <% }); %>
+            </table>
+        </form>
+
+        <!-- Soma valor de débito -->
+        <h3 id="somapl">Aqui vai PL: </h3>
+
+
+    </div>
+
+
 
 
 
     <script>
         function calcula() {
+
+            //Soma Crédito
             var credito = document.getElementsByClassName("credit")
             var arrayC = []
             var arrayCredito = []
@@ -114,6 +142,7 @@
 
             somaCredito.innerText += creditoTotal
 
+            //Soma Debito
             var debito = document.getElementsByClassName("debit")
             var arrayD = []
             var arrayDebito = []
@@ -136,10 +165,33 @@
 
 
 
+
+            //Soma Patrimônio Liquido
+
+            var PL = document.getElementsByClassName("pl")
+            var arraypl = []
+            var arrayPL = []
+
+
+            for (i = 0; i < PL.length; i++) {
+
+                arraypl.push(PL[i].innerHTML)
+                arrayPL.push(parseInt(arraypl[i]))
+
+            }
+
+            var PLTotal = arrayPL.reduce(function (a, b) {
+                return a + b
+            }, 0)
+
+
+            const somaPL = document.getElementById("somapl")
+
+            somaPL.innerText += PLTotal
+
             var faisca = document.getElementById("bola")
 
-            faisca.innerText += creditoTotal - debitoTotal
-
+            faisca.innerText += PLTotal + creditoTotal - debitoTotal
         }
     </script>
 </body>
