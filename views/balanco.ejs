@@ -35,8 +35,10 @@
 <body onload="calcula()">
 
     <div class="left">
-
-        <form action="/del" method="POST">
+      
+        <!-- Deleta Crédito -->
+      
+        <form action="/delC" method="POST">
             <table class="box">
                 <h1>Crédito</h1>
                 <% credito.forEach(function(conta){ %>
@@ -52,12 +54,17 @@
             </table>
 
         </form>
+
+        <!-- Soma valor de Crédito -->
+
         <h3 id="somac">Aqui vai soma valor: </h3>
     </div>
 
     <div class="rigth">
 
-        <form action="/deldeb" method="POST">
+      <!-- Deleta Débito -->
+
+        <form action="/delB" method="POST">
             <table class="box">
                 <h1>Débito</h1>
                 <% debito.forEach(function(conta){ %>
@@ -71,6 +78,7 @@
             </table>
         </form>
 
+        <!-- Soma valor de débito -->
         <h3 id="somad">Aqui vai débito: </h3>
 
         <h1 id="bola"> Balanço: </h1>
