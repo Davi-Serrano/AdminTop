@@ -63,15 +63,24 @@ router.get('/ler',  (req, res) => {
 
     })
 
-router.post("/del", (req, res) =>{
-    
-    Credito.deleteOne({_id: req.body.id}).then(() => {
+    router.post("/del", (req, res) =>{
+        
+        Credito.deleteOne({_id: req.body.id}).then(() => {
             res.redirect("/ler")
         }).catch((err) =>{
             res.redirect("/ler")
         })
     })
-
+    
+    router.post("/deldeb", (req, res) =>{
+            
+        Debito.deleteOne({_id: req.body.id}).then(() => {
+                        res.redirect("/ler")
+                    }).catch((err) =>{
+                        res.redirect("/ler")
+                    })
+                })
+    
 
 
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,118 +8,130 @@
     <title>Read</title>
 </head>
 <style>
-    body{
+    body {
         display: flex;
         justify-content: space-around;
     }
-    table, th{
+
+    table,
+    th {
         border: 1px solid black;
     }
-    .credit{
+
+    .credit {
         background-color: red;
     }
-    .debit{
+
+    .debit {
         background-color: green;
     }
-    .left{
+
+    .left {
         display: flex;
         flex-direction: column;
     }
 </style>
-<body onload="ale()">
-    
+
+<body onload="calcula()">
+
     <div class="left">
 
         <form action="/del" method="POST">
-        <table class="box">
-            <h1>Crédito</h1>
-        <% credito.forEach(function(conta){ %>
-            <tr class="box">
-                <input type="hidden" name="id" value="<%= conta._id %>">
-               <th> <button type="submit"> Deletar</button> </th>
-                <th><%= conta.Descricao %></th>
-                <th class="credit"><%= conta.Valor %></th>           
-            </tr>
-                    
-            <% }); %>
-            
-        </table>
-        <h3 id="somac">Aqui vai soma valor: </h3>
-        
-    </div>
+            <table class="box">
+                <h1>Crédito</h1>
+                <% credito.forEach(function(conta){ %>
+                <tr class="box">
+                    <input type="hidden" name="id" value="<%= conta._id %>">
+                    <th> <button type="submit"> Deletar</button> </th>
+                    <th><%= conta.Descricao %></th>
+                    <th class="credit"><%= conta.Valor %></th>
+                </tr>
 
+                <% }); %>
+
+            </table>
+
+        </form>
+        <h3 id="somac">Aqui vai soma valor: </h3>
+    </div>
 
     <div class="rigth">
 
-        <table class="box">
-            <h1>Débito</h1>
-        <% debito.forEach(function(conta){ %>
-            <tr class="box">
-                <th><%= conta.Descricao %></th>
-                <th class="debit"><%= conta.Valor %></th>           
-            </tr>
-            <% }); %>
-        </table>
+        <form action="/deldeb" method="POST">
+            <table class="box">
+                <h1>Débito</h1>
+                <% debito.forEach(function(conta){ %>
+                <tr class="box">
+                    <input type="hidden" name="id" value="<%= conta._id %>">
+                    <th> <button type="submit"> Deletar</button> </th>
+                    <th><%= conta.Descricao %></th>
+                    <th class="debit"><%= conta.Valor %></th>
+                </tr>
+                <% }); %>
+            </table>
+        </form>
 
         <h3 id="somad">Aqui vai débito: </h3>
+
         <h1 id="bola"> Balanço: </h1>
+
     </div>
 
 
 
-<script>
 
-    function ale(){
-        var credito = document.getElementsByClassName("credit")
-        var arrayC = []
-        var arrayCredito = []
-    
-        
-        for (i = 0; i < credito.length; i++) {   
-            
-            arrayC.push(credito[i].innerHTML)
-            arrayCredito.push(parseInt(arrayC[i]))
-            
+
+    <script>
+        function calcula() {
+            var credito = document.getElementsByClassName("credit")
+            var arrayC = []
+            var arrayCredito = []
+
+
+            for (i = 0; i < credito.length; i++) {
+
+                arrayC.push(credito[i].innerHTML)
+                arrayCredito.push(parseInt(arrayC[i]))
+
+            }
+
+            var creditoTotal = arrayCredito.reduce(function (a, b) {
+                return a + b
+            }, 0)
+
+
+            const somaCredito = document.getElementById("somac")
+
+            somaCredito.innerText += creditoTotal
+
+            var debito = document.getElementsByClassName("debit")
+            var arrayD = []
+            var arrayDebito = []
+
+
+            for (i = 0; i < debito.length; i++) {
+
+                arrayD.push(debito[i].innerHTML)
+                arrayDebito.push(parseInt(arrayD[i]))
+
+            }
+
+            var debitoTotal = arrayDebito.reduce(function (a, b) {
+                return a + b
+            }, 0)
+
+            const somaDebito = document.getElementById("somad")
+
+            somaDebito.innerText += debitoTotal
+
+
+
+            var faisca = document.getElementById("bola")
+
+            faisca.innerText += creditoTotal - debitoTotal
+
         }
-            
-        var creditoTotal = arrayCredito.reduce(function(a , b) {
-            return a + b
-        }, 0)
-
-
-        const somaCredito = document.getElementById("somac")
-
-        somaCredito.innerText += creditoTotal
-
-        var debito = document.getElementsByClassName("debit")
-        var arrayD = []
-        var arrayDebito = []
-        
-        
-        for (i = 0; i < debito.length; i++) {   
-            
-            arrayD.push(debito[i].innerHTML)
-            arrayDebito.push(parseInt(arrayD[i]))
-            
-        }
-            
-        var debitoTotal = arrayDebito.reduce(function(a , b) {
-            return a + b
-        }, 0)
-        
-        const somaDebito = document.getElementById("somad")
-        
-        somaDebito.innerText += debitoTotal
-
-
-
-        var faisca = document.getElementById("bola")
-
-        faisca.innerText += creditoTotal - debitoTotal
-
-}
-
-
-</script>
+    </script>
 </body>
+
 </html>
