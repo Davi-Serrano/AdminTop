@@ -122,6 +122,32 @@ router.post("/delPL", (req, res) => {
     })
 })
 
+//Razonete
+
+router.get("/razonete", (req, res) =>{
+
+    PL.find().lean().then((pl) => {
+
+        Debito.find().lean().then((debito) => {
+
+            Credito.find().lean().then((credito) => {
+
+                res.render("../views/razonete", {
+                    credito: credito,
+                    debito: debito,
+                    pl: pl
+                })
+            }).catch((err) => {
+                console.log(err)
+            }).catch((err) => {
+                console.log(err)
+            })
+
+        })
+    })
+
+})
+
 
 
 

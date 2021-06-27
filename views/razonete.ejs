@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razonetes</title>
+</head>
+
+<style>
+    body {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+
+    }
+
+    .raz {
+        margin: 50px;
+        width: 150px;
+
+    }
+
+    .T {
+        display: flex;
+        margin-top: -15px;
+        margin-bottom: 50px;
+        max-width: 100px;
+        align-items: center;
+        border-top: 1px solid black;
+    }
+
+    .rigth {
+        width: 50px;
+        height: 80px;
+        margin-left: 2px;
+    }
+
+    .left {
+        width: 50px;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-right: 1px solid black;
+    }
+
+    h3 {
+        max-width: 100px;
+        text-align: center;
+    }
+
+    h4 {
+        margin-top: 0;
+    }
+</style>
+
+<body>
+    <div class="raz">
+
+        <% debito.forEach(function(conta){ %>
+
+        <!-- Itens Visíveis do razonete -->
+        <h3> <%= conta.Descricao %> </h3>
+        <div class="T">
+
+            <div class="left">
+                <h4>Ativo</h4>
+                <%= conta.Valor %>
+            </div>
+
+            <div class="rigth">
+                <h4>Passivo</h4>
+
+            </div>
+
+        </div>
+
+        <% }); %>
+
+
+    </div>
+
+    <div class="raz">
+
+        <% credito.forEach(function(conta){ %>
+
+        <!-- Itens Visíveis do razonete -->
+        <h3> <%= conta.Descricao %> </h3>
+        <div class="T">
+
+            <div class="left">
+                <h4>Ativo</h4>
+            </div>
+
+            <div class="rigth">
+                <h4>Passivo</h4>
+                <%= conta.Valor %>
+
+            </div>
+
+        </div>
+
+        <% }); %>
+
+
+    </div>
+
+    <div class="raz">
+
+        <% pl.forEach(function(conta){ %>
+
+        <!-- Itens Visíveis do razonete -->
+        <h3> <%= conta.Descricao %> </h3>
+        <div class="T">
+
+            <div class="left">
+                <h4>Ativo</h4>
+            </div>
+
+            <div class="rigth">
+                <h4>Passivo</h4>
+                PL:<%= conta.Valor %>
+            </div>
+
+        </div>
+
+        <% }); %>
+
+
+    </div>
+
+</body>
+
+</html>
