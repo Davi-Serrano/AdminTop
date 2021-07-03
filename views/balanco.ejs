@@ -8,143 +8,188 @@
     <title>Read</title>
 </head>
 <style>
-    body {
-        display: flex;
-        justify-content: center;
+    body{
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
     }
-
-    table {
+    tr{
         border: 1px solid black;
+        box-shadow: 1px 1px black;
     }
-
-    th {
-        border-bottom: 1px solid black;
-    }
-
     .credit {
         background-color: red;
     }
-
-    .debit {
+    .debit{
         background-color: green;
+        
     }
-
+    .left{
+        border:1px solid black;
+    }
     .right {
+        border:1px solid black;
         display: flex;
         flex-direction: column;
-        margin-left: 50px;
+        margin-left: 1px;
+        padding: 0;
+    }
+    .balan{
+        display: flex;
+        justify-content: center;
+    }
+    h1{
+        text-align: center;
+    }
+    h3{
+        text-align: center;
+        margin: 0;
+        border-bottom: 1px solid black;
+    }
+    h2{
+        margin: 2px;
+        font-size: 22px;
+    }
+    h5{
+        margin:0;
+        font-size: 22px;
+    }
+    .cnt{
+        margin: auto;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        border: 1px solid black;
+        width: 70%;
+    }
+    #somad{
+        border-right: 1px black solid;
+        padding-right: 6px;
+    }
+    #somapl{
+        margin-top: 25px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
     }
 </style>
 
 <body onload="calcula()">
-    <div class="left">
 
-        <!-- Deleta Débito -->
+    <h1>Balanço Patrimonial</h1>
+    
+    <div class="balan">
 
-        <form action="/delD" method="POST">
+     <div class="left">
+         
+         <!-- Deleta Débito -->
+
+         <form action="/delD" method="POST">
             <table class="box">
-                <h1>Débito</h1>
+                <h3>Ativo</h3>
                 <% debito.forEach(function(conta){ %>
-
-                <!-- Mostra os Itens que componhe o Débito-->
-
+                    
+                    <!-- Mostra os Itens que componhe o Débito-->
+                    
                 <tr class="box">
-
+                    
                     <!-- id pra excluir  -->
-
+                    
                     <input type="hidden" name="id" value="<%= conta._id %>">
-                    <th> <button type="submit"> Deletar</button> </th>
+                    <th> <button type="submit"> X</button> </th>
 
                     <!-- Itens Visíveis da tabela -->
-
+                    
                     <th><%= conta.Descricao %></th>
                     <th class="debit"><%= conta.Valor %></th>
                 </tr>
                 <% }); %>
             </table>
-        </form>
-
+         </form>   
         <!-- Soma valor de débito -->
-        <h3 id="somad">Aqui vai débito: </h3>
-
-        <h1 id="balanco"> Balanço: </h1>
-
+        
+        
     </div>
-
+    
     <div class="right">
-
+        
         <!-- Deleta Crédito -->
-
+        
         <form action="/delC" method="POST">
-            <table class="box">
-                <h1>Crédito</h1>
+        <table class="box">
+                <h3>Passivo</h3>
                 <% credito.forEach(function(conta){ %>
-
-                <!-- Mostra os Itens que componhe o Crédito-->
-
-                <tr class="box">
-
-                    <!-- id pra excluir  -->
-
+                    
+                    <!-- Mostra os Itens que componhe o Crédito-->
+                
+                    <tr class="box">
+                        
+                        <!-- id pra excluir  -->
+                        
                     <input type="hidden" name="id" value="<%= conta._id %>">
-                    <th> <button type="submit"> Deletar</button> </th>
-
+                    <th> <button type="submit"> X</button> </th>
+                    
                     <!-- Itens Visíveis da tabela -->
-
+                    
                     <th><%= conta.Descricao %></th>
                     <th class="credit"><%= conta.Valor %></th>
                 </tr>
-
+                
                 <% }); %>
-
+            </form>        
                 <!-- Deleta PL -->
                 <form action="/delPL" method="POST">
                     <table class="box">
-
+                        
                         <h5 id="somapl">Patrimônio Líquido:</h5>
-
+                        
                         <% pl.forEach(function(conta){ %>
+                            
+                            <!-- Mostra os Itens que componhe o patrimônio líquido -->
+                            
+                            <tr class="box">
 
-                        <!-- Mostra os Itens que componhe o patrimônio líquido -->
-
-                        <tr class="box">
-
-                            <!-- id pra excluir  -->
-
-                            <input type="hidden" name="id" value="<%= conta._id %>">
-                            <th> <button type="submit"> Deletar</button> </th>
-
+                                <!-- id pra excluir  -->
+                                
+                                <input type="hidden" name="id" value="<%= conta._id %>">
+                                <th> <button type="submit"> X</button> </th>
+                                
                             <!-- Itens Visíveis da tabela -->
-
+                            
                             <th><%= conta.Descricao %></th>
-                            <th class="pl"><%= conta.Valor %></th>
-
+                            <th class="pl credit"> <%= conta.Valor %></th>
+                            
                         </tr>
                         <% }); %>
                     </table>
                 </form>
             </table>
-
-        </form>
-
+            
+            
+        
+        
         <!-- Soma valor de Crédito -->
-
-        <h3 id="somac">Aqui vai soma valor: </h3>
+        
     </div>
+    
+    
+    
+</div>
+<div class="cnt">
+
+    <h2 id="somad">Total de Ativo: </h2>
+    <h2 id="somac">Total Passivo: </h>
+</div>
+    
+<h1 id="balanco"> Balanço: </h1>
 
 
 
 
 
-
-
-
-
-
-    <script>
-        function calcula() {
-
-            //Soma Crédito
+<script>
+    function calcula() {
+        
+        //Soma Crédito
             var credito = document.getElementsByClassName("credit")
             var arrayC = []
             var arrayCredito = []
