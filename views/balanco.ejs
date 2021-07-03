@@ -8,65 +8,88 @@
     <title>Read</title>
 </head>
 <style>
-    body{
+    body {
         margin: 0;
         padding: 0;
         font-size: 20px;
+        display: flex;
+        justify-content: center;
     }
-    tr{
+    .border{
+        margin: 50px;
+        padding: 10px;
+        box-shadow: 1px 1px 2px 5px black;
+
+        background-color: rgb(63, 243, 63);
+    }
+    .balan {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(177, 255, 100);
+        width: 100%;
+    }
+    .box{
+        padding: 14px;
+        background-color: rgb(177, 255, 100);
+    }
+    tr {
         border: 1px solid black;
         box-shadow: 1px 1px black;
     }
-    .credit {
-        background-color: red;
+    .debit, .credit{
+        border-left: 1px black solid;
+        padding-left: 5px;
     }
-    .debit{
-        background-color: green;
-        
-    }
-    .left{
-        border:1px solid black;
+    .left {
+        border: 1px solid black;
     }
     .right {
-        border:1px solid black;
+        border: 1px solid black;
         display: flex;
         flex-direction: column;
         margin-left: 1px;
         padding: 0;
     }
-    .balan{
-        display: flex;
-        justify-content: center;
-    }
-    h1{
+
+    h1 {
         text-align: center;
     }
-    h3{
+
+    h3 {
+        background-color: chartreuse;
         text-align: center;
         margin: 0;
         border-bottom: 1px solid black;
     }
-    h2{
-        margin: 2px;
+
+    h2 {
+        padding-left:2px;
+        margin: 0;
         font-size: 22px;
     }
-    h5{
-        margin:0;
+
+    h5 {
+        margin: 0;
         font-size: 22px;
+        background-color: chartreuse;
     }
-    .cnt{
+
+    .cnt {
         margin: auto;
         margin-top: 20px;
         display: flex;
         justify-content: center;
         border: 1px solid black;
         width: 70%;
+        background-color: chartreuse;
     }
-    #somad{
+
+    #somad {
         border-right: 1px black solid;
         padding-right: 6px;
     }
-    #somapl{
+
+    #somapl {
         margin-top: 25px;
         border-top: 1px solid black;
         border-bottom: 1px solid black;
@@ -75,121 +98,123 @@
 
 <body onload="calcula()">
 
-    <h1>Balanço Patrimonial</h1>
-    
-    <div class="balan">
 
-     <div class="left">
-         
-         <!-- Deleta Débito -->
+    <div class="border">
+        <h1>Balanço Patrimonial</h1>
 
-         <form action="/delD" method="POST">
-            <table class="box">
-                <h3>Ativo</h3>
-                <% debito.forEach(function(conta){ %>
-                    
-                    <!-- Mostra os Itens que componhe o Débito-->
-                    
-                <tr class="box">
-                    
-                    <!-- id pra excluir  -->
-                    
-                    <input type="hidden" name="id" value="<%= conta._id %>">
-                    <th> <button type="submit"> X</button> </th>
+        <div class="balan">
 
-                    <!-- Itens Visíveis da tabela -->
-                    
-                    <th><%= conta.Descricao %></th>
-                    <th class="debit"><%= conta.Valor %></th>
-                </tr>
-                <% }); %>
-            </table>
-         </form>   
-        <!-- Soma valor de débito -->
-        
-        
-    </div>
-    
-    <div class="right">
-        
-        <!-- Deleta Crédito -->
-        
-        <form action="/delC" method="POST">
-        <table class="box">
-                <h3>Passivo</h3>
-                <% credito.forEach(function(conta){ %>
-                    
-                    <!-- Mostra os Itens que componhe o Crédito-->
-                
-                    <tr class="box">
-                        
-                        <!-- id pra excluir  -->
-                        
-                    <input type="hidden" name="id" value="<%= conta._id %>">
-                    <th> <button type="submit"> X</button> </th>
-                    
-                    <!-- Itens Visíveis da tabela -->
-                    
-                    <th><%= conta.Descricao %></th>
-                    <th class="credit"><%= conta.Valor %></th>
-                </tr>
-                
-                <% }); %>
-            </form>        
-                <!-- Deleta PL -->
-                <form action="/delPL" method="POST">
+            <div class="left">
+
+                <!-- Deleta Débito -->
+
+                <form action="/delD" method="POST">
                     <table class="box">
-                        
-                        <h5 id="somapl">Patrimônio Líquido:</h5>
-                        
-                        <% pl.forEach(function(conta){ %>
-                            
-                            <!-- Mostra os Itens que componhe o patrimônio líquido -->
-                            
-                            <tr class="box">
+                        <h3>Ativo</h3>
+                        <% debito.forEach(function(conta){ %>
 
-                                <!-- id pra excluir  -->
-                                
-                                <input type="hidden" name="id" value="<%= conta._id %>">
-                                <th> <button type="submit"> X</button> </th>
-                                
+                        <!-- Mostra os Itens que componhe o Débito-->
+
+                        <tr class="box">
+
+                            <!-- id pra excluir  -->
+
+                            <input type="hidden" name="id" value="<%= conta._id %>">
+                            <th> <button type="submit"> X</button> </th>
+
                             <!-- Itens Visíveis da tabela -->
-                            
+
                             <th><%= conta.Descricao %></th>
-                            <th class="pl credit"> <%= conta.Valor %></th>
-                            
+                            <th class="debit"><%= conta.Valor %></th>
                         </tr>
                         <% }); %>
                     </table>
                 </form>
-            </table>
-            
-            
-        
-        
-        <!-- Soma valor de Crédito -->
-        
+                <!-- Soma valor de débito -->
+
+
+            </div>
+
+            <div class="right">
+
+                <!-- Deleta Crédito -->
+
+                <form action="/delC" method="POST">
+                    <table class="box">
+                        <h3>Passivo</h3>
+                        <% credito.forEach(function(conta){ %>
+
+                        <!-- Mostra os Itens que componhe o Crédito-->
+
+                        <tr class="box">
+
+                            <!-- id pra excluir  -->
+
+                            <input type="hidden" name="id" value="<%= conta._id %>">
+                            <th> <button type="submit"> X</button> </th>
+
+                            <!-- Itens Visíveis da tabela -->
+
+                            <th><%= conta.Descricao %></th>
+                            <th class="credit"><%= conta.Valor %></th>
+                        </tr>
+
+                        <% }); %>
+                </form>
+                <!-- Deleta PL -->
+                <form action="/delPL" method="POST">
+                    <table class="box">
+
+                        <h5 id="somapl">Patrimônio Líquido:</h5>
+
+                        <% pl.forEach(function(conta){ %>
+
+                        <!-- Mostra os Itens que componhe o patrimônio líquido -->
+
+                        <tr class="box">
+
+                            <!-- id pra excluir  -->
+
+                            <input type="hidden" name="id" value="<%= conta._id %>">
+                            <th> <button type="submit"> X</button> </th>
+
+                            <!-- Itens Visíveis da tabela -->
+
+                            <th><%= conta.Descricao %></th>
+                            <th class="pl credit"> <%= conta.Valor %></th>
+
+                        </tr>
+                        <% }); %>
+                    </table>
+                </form>
+                </table>
+
+
+
+
+                <!-- Soma valor de Crédito -->
+
+            </div>
+
+
+
+        </div>
+        <div class="cnt">
+
+            <h2 id="somad">Total de Ativo: </h2>
+            <h2 id="somac">Total Passivo: </h>
+        </div>
+
+        <h1 id="balanco"> Balanço: </h1>
+
+
     </div>
-    
-    
-    
-</div>
-<div class="cnt">
-
-    <h2 id="somad">Total de Ativo: </h2>
-    <h2 id="somac">Total Passivo: </h>
-</div>
-    
-<h1 id="balanco"> Balanço: </h1>
 
 
+    <script>
+        function calcula() {
 
-
-
-<script>
-    function calcula() {
-        
-        //Soma Crédito
+            //Soma Crédito
             var credito = document.getElementsByClassName("credit")
             var arrayC = []
             var arrayCredito = []

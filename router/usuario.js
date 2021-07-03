@@ -24,9 +24,10 @@ router.post("/saveC", (req, res) => {
     }
     new Credito(newCred).save().then(() => {
         console.log("Salvo com sucesso")
-    
+        res.redirect("/")
     }).catch((err) => {
         console.log(err)
+        res.redirect("/")
     })
 })
 
@@ -39,9 +40,10 @@ router.post("/saveD", (req, res) => {
     }
     new Debito(newDeb).save().then(() => {
         console.log("Salvo com sucesso")
-        
+        res.redirect("/")
     }).catch((err) => {
         console.log(err)
+        res.redirect("/")
     })
 
 })
@@ -54,9 +56,10 @@ router.post("/savePL", (req, res) => {
     }
     new PL(newPL).save().then(() => {
         console.log("Salvo com sucesso")
-        
+        res.redirect("/")
     }).catch((err) => {
         console.log(err)
+        res.redirect("/")
     })
 
 })
