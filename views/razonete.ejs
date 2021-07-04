@@ -10,80 +10,93 @@
 </head>
 
 <body>
-    <div class="raz">
+    <header>
+        <h1 class="logo">Admin-Me</h1>
 
-        <% debito.forEach(function(conta){ %>
+        <h2 class="login">Login</h2>
+    </header>
 
-        <!-- Itens Visíveis do razonete -->
-        <h3> <%= conta.Descricao %> </h3>
-        <div class="T">
+    <section>
 
-            <div class="left">
-                <h4>Ativo</h4>
-                <%= conta.Valor %>
+
+        <div class="raz">
+
+            <% debito.forEach(function(conta){ %>
+
+            <!-- Itens Visíveis do razonete -->
+            <h3> <%= conta.Descricao %> </h3>
+            <div class="T">
+
+                <div class="left">
+                    <h4>Ativo</h4>
+                    <%= conta.Valor %>
+                </div>
+
+                <div class="rigth">
+                    <h4>Passivo</h4>
+
+                </div>
+
             </div>
 
-            <div class="rigth">
-                <h4>Passivo</h4>
+            <% }); %>
 
-            </div>
 
         </div>
 
-        <% }); %>
+        <div class="raz">
 
+            <% credito.forEach(function(conta){ %>
 
-    </div>
+            <!-- Itens Visíveis do razonete -->
+            <h3> <%= conta.Descricao %> </h3>
+            <div class="T">
 
-    <div class="raz">
+                <div class="left">
+                    <h4>Ativo</h4>
+                </div>
 
-        <% credito.forEach(function(conta){ %>
+                <div class="rigth">
+                    <h4>Passivo</h4>
+                    <%= conta.Valor %>
 
-        <!-- Itens Visíveis do razonete -->
-        <h3> <%= conta.Descricao %> </h3>
-        <div class="T">
-
-            <div class="left">
-                <h4>Ativo</h4>
-            </div>
-
-            <div class="rigth">
-                <h4>Passivo</h4>
-                <%= conta.Valor %>
+                </div>
 
             </div>
+
+            <% }); %>
+
 
         </div>
 
-        <% }); %>
+        <div class="raz">
 
+            <% pl.forEach(function(conta){ %>
 
-    </div>
+            <!-- Itens Visíveis do razonete -->
+            <h3> <%= conta.Descricao %> </h3>
+            <div class="T">
 
-    <div class="raz">
+                <div class="left">
+                    <h4>Ativo</h4>
+                </div>
 
-        <% pl.forEach(function(conta){ %>
+                <div class="rigth">
+                    <h4>Passivo</h4>
+                    PL:<%= conta.Valor %>
+                </div>
 
-        <!-- Itens Visíveis do razonete -->
-        <h3> <%= conta.Descricao %> </h3>
-        <div class="T">
-
-            <div class="left">
-                <h4>Ativo</h4>
             </div>
 
-            <div class="rigth">
-                <h4>Passivo</h4>
-                PL:<%= conta.Valor %>
-            </div>
+            <% }); %>
+
 
         </div>
+    </section>
+    <footer>
+        <h3> &copy 2021 - DSY Tech Desenvolvimento Web </h3>
 
-        <% }); %>
-
-
-    </div>
-
+    </footer>
 </body>
 
 </html>
