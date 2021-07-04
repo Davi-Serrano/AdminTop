@@ -6,23 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./balanco.css">
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">  
     <title>Read</title>
 </head>
 
 
 <body onload="calcula()">
 
+    <header>
+        <h1 class="logo">Admin-Me</h1>
 
-    <div class="border">
-        <h1>Balanço Patrimonial</h1>
+        <h2 class="login">Login</h2>
+    </header>
+    <section>
 
-        <div class="balan">
+        <div class="border">
+            <h1 class="titleBalan">Balanço Patrimonial</h1>
 
-            <div class="left">
+            <div class="balan">
 
-                <!-- Deleta Débito -->
+                <div class="left">
 
-                
+                    <!-- Deleta Débito -->
+
+
                     <table class="box">
                         <h3>Ativo</h3>
                         <% debito.forEach(function(conta){ %>
@@ -39,16 +50,16 @@
                         <% }); %>
                     </table>
 
-                <!-- Soma valor de débito -->
+                    <!-- Soma valor de débito -->
 
 
-            </div>
+                </div>
 
-            <div class="right">
+                <div class="right">
 
-                <!-- Deleta Crédito -->
+                    <!-- Deleta Crédito -->
 
-            
+
                     <table class="box">
                         <h3>Passivo</h3>
                         <% credito.forEach(function(conta){ %>
@@ -64,52 +75,57 @@
                         </tr>
 
                         <% }); %>
-                
 
-                    <table class="box">
 
-                        <h5 id="somapl">Patrimônio Líquido:</h5>
+                        <table class="box">
 
-                        <% pl.forEach(function(conta){ %>
+                            <h5 id="somapl">Patrimônio Líquido:</h5>
 
-                        <!-- Mostra os Itens que componhe o patrimônio líquido -->
+                            <% pl.forEach(function(conta){ %>
 
-                        <tr class="box">
+                            <!-- Mostra os Itens que componhe o patrimônio líquido -->
 
-                            <!-- Itens da tabela -->
+                            <tr class="box">
 
-                            <th><%= conta.Descricao %></th>
-                            <th class="pl credit"> <%= conta.Valor %></th>
+                                <!-- Itens da tabela -->
 
-                        </tr>
-                        <% }); %>
+                                <th><%= conta.Descricao %></th>
+                                <th class="pl credit"> <%= conta.Valor %></th>
+
+                            </tr>
+                            <% }); %>
+                        </table>
+
                     </table>
-            
-                </table>
 
 
 
 
-                <!-- Soma valor de Crédito -->
+                    <!-- Soma valor de Crédito -->
+
+                </div>
+
+
 
             </div>
+            <div class="cnt">
 
+                <h2 id="somad">Total de Ativo: </h2>
+                <h2 id="somac">Total Passivo: </h>
+            </div>
+
+            <h1 id="balanco"> Balanço: </h1>
 
 
         </div>
-        <div class="cnt">
 
-            <h2 id="somad">Total de Ativo: </h2>
-            <h2 id="somac">Total Passivo: </h>
-        </div>
+        
+    </section>
+    <footer>
+        <h3> &copy 2021 - DSY Tech Desenvolvimento Web </h3>
 
-        <h1 id="balanco"> Balanço: </h1>
-
-
-    </div>
-
-
-    <script src="./calc.js" > </script>
+    </footer>
+    <script src="./calc.js"> </script>
 </body>
 
 </html>
