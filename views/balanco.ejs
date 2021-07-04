@@ -108,7 +108,7 @@
 
                 <!-- Deleta Débito -->
 
-                <form action="/delD" method="POST">
+                
                     <table class="box">
                         <h3>Ativo</h3>
                         <% debito.forEach(function(conta){ %>
@@ -117,19 +117,14 @@
 
                         <tr class="box">
 
-                            <!-- id pra excluir  -->
-
-                            <input type="hidden" name="id" value="<%= conta._id %>">
-                            <th> <button type="submit"> X</button> </th>
-
-                            <!-- Itens Visíveis da tabela -->
+                            <!-- Itens da tabela -->
 
                             <th><%= conta.Descricao %></th>
                             <th class="debit"><%= conta.Valor %></th>
                         </tr>
                         <% }); %>
                     </table>
-                </form>
+
                 <!-- Soma valor de débito -->
 
 
@@ -139,7 +134,7 @@
 
                 <!-- Deleta Crédito -->
 
-                <form action="/delC" method="POST">
+            
                     <table class="box">
                         <h3>Passivo</h3>
                         <% credito.forEach(function(conta){ %>
@@ -148,21 +143,15 @@
 
                         <tr class="box">
 
-                            <!-- id pra excluir  -->
-
-                            <input type="hidden" name="id" value="<%= conta._id %>">
-                            <th> <button type="submit"> X</button> </th>
-
-                            <!-- Itens Visíveis da tabela -->
+                            <!-- Itens da tabela -->
 
                             <th><%= conta.Descricao %></th>
                             <th class="credit"><%= conta.Valor %></th>
                         </tr>
 
                         <% }); %>
-                </form>
-                <!-- Deleta PL -->
-                <form action="/delPL" method="POST">
+                
+
                     <table class="box">
 
                         <h5 id="somapl">Patrimônio Líquido:</h5>
@@ -173,12 +162,7 @@
 
                         <tr class="box">
 
-                            <!-- id pra excluir  -->
-
-                            <input type="hidden" name="id" value="<%= conta._id %>">
-                            <th> <button type="submit"> X</button> </th>
-
-                            <!-- Itens Visíveis da tabela -->
+                            <!-- Itens da tabela -->
 
                             <th><%= conta.Descricao %></th>
                             <th class="pl credit"> <%= conta.Valor %></th>
@@ -186,7 +170,7 @@
                         </tr>
                         <% }); %>
                     </table>
-                </form>
+            
                 </table>
 
 
