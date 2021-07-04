@@ -4,6 +4,8 @@ const mongoose = require("mongoose")
 
 const usuarios = require("./router/usuario")
 
+app.use(express.static(__dirname + '/views/CSS'));
+app.use(express.static(__dirname + '/views/JS'));
 
 
 //config mongoose

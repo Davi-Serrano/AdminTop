@@ -12,7 +12,7 @@ const PL = mongoose.model("PL")
 //Faz o cadastro de crédito e débito
 router.get("/", (req, res) => {
 
-    res.render("../views/index");
+    res.render("../views/cadConta");
 })
 
 //Posta Crédito 
