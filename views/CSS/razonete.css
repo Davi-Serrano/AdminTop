@@ -1,41 +1,63 @@
 body {
+    margin: 0;
+    padding: 0;
+}
+header{
+    margin: 0;
+    width: 100%;
     display: flex;
-    justify-items: center;
+    justify-content: space-between;
+    background: black;
+    color: white;
+}
+.logo{
+    margin-left: 2em;
+}
+.login{
+    margin-right: 2em;
+}
+section{
+    display: flex;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    background-color: greenyellow;
 }
-
 .raz {
     margin: 50px;
     width: auto;
-    background-color: rgb(36, 170, 36);
     padding: 2em;
-
 }
-
 .T {
-    background-color: rgb(135, 243, 108);
     display: flex;
     margin-top: -15px;
     margin-bottom: 50px;
-    max-width:auto;
+    max-width: auto;
     align-items: center;
-    border-top: 1px solid black;
-    border-bottom: 3px solid black;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
+    border: 3px solid black;
     padding: 15px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .rigth {
     width: 50%;
     height: 80px;
-    margin-left: 2px;
+    margin-left: 0.5em;
 }
-.deb{
+
+.deb {
     background-color: black;
     width: 10px;
+}
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    margin-top: 1em;
+    height: 70px;
 }
 
 .left {
@@ -44,17 +66,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     border-right: 1px solid black;
+    margin-right: 0.5em;
 }
 
 h3 {
     max-width: 100%;
     text-align: center;
     padding: 5px;
-    background-color: rgb(21, 255, 0);
-    border-top: 3px solid black;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
+    background-color: black;
+    color: white;
+    border: 3px solid black
 }
 
 h4 {
