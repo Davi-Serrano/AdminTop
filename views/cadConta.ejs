@@ -6,15 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./cadConta.css">
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
     <title>Create</title>
 
 </head>
 
 <body>
 
+    <header>
+        <h1 class="logo">Admin-Me</h1>
+
+        <h2 class="login">Login</h2>
+    </header>
+
+    <section>
+    
+        <div class="box">
+
+        
+        <h1> Depositar Débito </h1>
+        
+        <form action="/saveD" method="POST">
+            <label> Descrição: </label>
+            <input type="text" placeholder="Descrição" name="descricaoDeb">
+            <label> Valor: </label>
+            <input type="number" placeholder="Valor em R$" min="1" name="valorDeb">
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+    
     <div class="box">
-
-
+    
+    
         <h1> Depositar Crédito </h1>
 
         <form action="/saveC" method="POST">
@@ -26,33 +54,40 @@
         </form>
 
     </div>
-
+    
     <div class="box">
-
-        <h1> Depositar Débito </h1>
-
-        <form action="/saveD" method="POST">
-            <label> Descrição: </label>
-            <input type="text" placeholder="Descrição" name="descricaoDeb">
-            <label> Valor: </label>
-            <input type="number" placeholder="Valor em R$" min="1" name="valorDeb">
-            <button type="submit">Cadastrar</button>
-        </form>
-    </div>
-
-    <div class="box">
-
+        
         <h1 class="pl">Depositar Patrimônio Líquido</h1>
-
+        
         <form action="/savePL" method="POST">
-            <label> Descrição: </label>
-            <input type="text" placeholder="Descrição" name="descricaoPL">
-            <label> Valor: </label>
-            <input type="number" placeholder="Valor em R$" min="1" name="valorPL">
-            <button type="submit">Cadastrar</button>
-        </form>
-    </div>
+                <label> Descrição: </label>
+                <input type="text" placeholder="Descrição" name="descricaoPL">
+                <label> Valor: </label>
+                <input type="number" placeholder="Valor em R$" min="1" name="valorPL">
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </section>
 
+    <nav>
+        <div class="link">
+            Cadastrar
+        </div>
+        <div class="link">
+            Balanço
+        </div>
+        <div class="link">
+            Balancete
+        </div>
+        <div class="link">
+            Lançamentos
+        </div>
+    </nav>
+
+    <footer>
+        <h3> &copy 2021 - DSY Tech Desenvolvimento Web </h3>
+
+    </footer>
 </body>
 
 </html>
