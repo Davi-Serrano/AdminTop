@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./balancete.css">
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <title>Read</title>
+</head>
+
+
+<body onload="calcula()">
+
+    <header>
+        <h1 class="logo">Admin-Me</h1>
+
+        <h2 class="login">Login</h2>
+    </header>
+    <section>
+
+        <div class="balancete">
+
+            <div class="col">
+
+                <div class="descol  box">
+                    Descrição
+                </div>
+                
+                <div class="descol  box">
+                    Saldo Devedor
+                </div>
+
+                <div class="descol  box">
+                    Saldo Credor
+                </div>
+                
+                <div class="descol  box">
+                    Data
+                </div>
+                
+            </div>
+            <% debito.forEach(function(conta){ %>
+
+            <div class="line">       
+
+                <div class="desc  box">
+                    <%= conta.Descricao %>
+                </div>
+                
+                <div class="valor box">
+                    <%= conta.Valor %>
+                </div>
+
+                <div class="valor box">
+                    
+                </div>
+
+                <div class="date box">
+                    <%= conta.Date %>
+                </div>
+            </div>
+            <% }); %>
+
+            <% credito.forEach(function(conta){ %>
+
+            <div class="line">
+                <div class="desc box">
+                    <%= conta.Descricao %>
+                </div>
+
+                <div class="valor box">
+                    
+                </div>
+
+                <div class="valor box">
+                    <%= conta.Valor %>
+                </div>
+
+                <div class="date box">
+                    <%= conta.Date %>
+                </div>
+
+            </div>
+            <% }); %>
+            <% pl.forEach(function(conta){ %>
+
+                <div class="line">
+
+                    <div class="desc box">
+                        <%= conta.Descricao %>
+                    </div>
+
+                    <div class="valor box">
+                        
+                    </div>
+    
+                    <div class="valor box">
+                        <%= conta.Valor %>
+                    </div>
+
+                    <div class="date box">
+                        <%= conta.Date %>
+                    </div>
+    
+                </div>
+                <% }); %>
+
+
+                <div class="col">
+
+                    <div class="descol  box">
+                        TOTAL
+                    </div>
+                    
+                    <div class="descol box" id="somad" >
+                      LPAIS
+                    </div>
+    
+                    <div class="box" id="somac" >
+                    
+                    </div>
+                    
+                    <div class="box" id="somapl">
+                   
+                    </div>
+                    
+                </div>
+
+
+
+
+        </div>
+
+
+    </section>
+    <footer>
+        <h3> &copy 2021 - DSY Tech Desenvolvimento Web </h3>
+
+    </footer>
+</body>
+
+</html>

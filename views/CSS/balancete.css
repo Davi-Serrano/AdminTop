@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bona Nova', serif;
+}
+header{
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: black;
+    color: white;
+}
+.logo{
+    margin-left: 2em;
+}
+.login{
+    margin-right: 2em;
+}
+.balancete{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+.col{
+    display: flex;
+}
+.line{
+    display: flex;
+    justify-content: center;
+}
+.box{
+    max-width: 200px;
+    min-width: 200px;
+    border: 1px solid black;
+    text-align: center;
+}
+.desc{
+    text-align: start;
+}
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    margin-top: 1em;
+    height: 70px;
+}

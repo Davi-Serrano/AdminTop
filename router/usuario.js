@@ -89,6 +89,31 @@ router.get('/balanco', (req, res) => {
 
 })
 
+//Pag de visualização do balanço
+router.get('/balancete', (req, res) => {
+
+    PL.find().lean().then((pl) => {
+
+        Debito.find().lean().then((debito) => {
+
+            Credito.find().lean().then((credito) => {
+
+                res.render("../views/balancete", {
+                    credito: credito,
+                    debito: debito,
+                    pl: pl
+                })
+            }).catch((err) => {
+                console.log(err)
+            }).catch((err) => {
+                console.log(err)
+            })
+
+        })
+    })
+
+})
+
 //Deleta Crédito
 router.post("/delC", (req, res) => {
 
