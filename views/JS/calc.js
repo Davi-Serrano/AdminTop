@@ -1,7 +1,7 @@
-function calcula() {
+async function calcula() {
 
     //Soma Crédito
-    var credito = document.getElementsByClassName("credit")
+    var credito = await document.getElementsByClassName("credit")
     var arrayC = []
     var arrayCredito = []
 
@@ -21,7 +21,7 @@ function calcula() {
 
 
     //Soma Debito
-    var debito = document.getElementsByClassName("debit")
+    var debito = await document.getElementsByClassName("debit")
     var arrayD = []
     var arrayDebito = []
 
@@ -46,7 +46,7 @@ function calcula() {
 
     //Soma Patrimônio Liquido
 
-    var PL = document.getElementsByClassName("pl")
+    var PL = await document.getElementsByClassName("pl")
     var arraypl = []
     var arrayPL = []
 
@@ -70,10 +70,13 @@ function calcula() {
     //Mostra total de Crédito
     const somaCredito = document.getElementById("somac")
 
+
     somaCredito.innerText += creditoTotal + PLTotal
 
     //Mostra o total do Balanço
     var balanco = document.getElementById("balanco")
 
     balanco.innerText += PLTotal + creditoTotal - debitoTotal
+
+    console.log(creditoTotal)
 }
