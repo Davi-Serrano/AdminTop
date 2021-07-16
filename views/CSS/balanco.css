@@ -101,6 +101,28 @@ h5 {
     text-align: center;
     padding-top: 1em ;
 }
+nav{
+    border-top: 1px black solid;
+    display: flex;
+    justify-content: space-around;
+    padding: 3em;
+}
+.link{
+    width: 100px;
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700; 
+}
+.link:hover{
+    cursor: pointer;
+    transform: translateY(-2px);
+    opacity: 90%
+}
+
 footer{
     width: 100%;
     display: flex;
