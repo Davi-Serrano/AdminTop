@@ -19,6 +19,7 @@ header{
 }
 section{
     font-size: 20px;
+    font-family: initial;
     display: flex;
     justify-content: center;
     

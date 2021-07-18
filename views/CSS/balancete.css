@@ -22,6 +22,7 @@ header{
     flex-direction: column;
     align-items: center;
     margin: 50px;
+    font-family: initial;
 }
 .col{
     display: flex;
