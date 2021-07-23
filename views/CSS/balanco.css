@@ -3,6 +3,15 @@ body {
     padding: 0;
     font-family: 'Bona Nova', serif;
 }
+/* headermob */
+.headerMobile {
+    display: none;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  /* header */
 header{
     margin: 0;
     width: 100%;
@@ -134,3 +143,31 @@ footer{
     margin-top: 1em;
     height: 70px;
 }
+@media (max-width: 650px) {
+    header {
+        display: none;
+      }
+      .headerMobile {
+        display: block;
+        background: linear-gradient(to bottom, #0c0c0c, #252525 70%, #313131 85%);
+      }
+      .headerMobile a {
+        text-decoration: none;
+        color: white;
+      }
+      .headerMobile .BtnMenu {
+        padding-left: 4px;
+      }
+      .hide {
+        display: none;
+      }
+      .Menu {
+        text-align: center;
+        line-height: 10vh;
+        font-size: 25px;
+        height: 100vh;
+      }
+      nav{
+        display: none;
+    }
+    }

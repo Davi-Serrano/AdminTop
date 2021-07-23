@@ -17,6 +17,29 @@
 
 <body onload="calcula()">
 
+    <div class="headerMobile">
+       
+        <img src="./Menu.png"  class="BtnMenu" width="50px">
+   
+
+        
+    <div class="Menu hide">
+        <a  href="/"> 
+            <h3>Cadastrar</h3>
+        </a>
+        <a  href="/balanco">
+            <h3>Balanço</h3>
+        </a>
+       
+        <a  href="/balancete">
+            <h3>Balancete</h3>
+        </a>
+        <a  href="/razonete">
+            <h3>Razonete</h3>
+        </a>
+    </div>
+    </div>
+
     <header>
         <h1 class="logo">Admin-Me</h1>
 
@@ -40,7 +63,7 @@
                     Saldo Credor
                 </div>
                 
-                <div class="descol  box">
+                <div class="descol  box HdMob">
                     Data
                 </div>
                 
@@ -61,7 +84,7 @@
                     
                 </div>
 
-                <div class="date box">
+                <div class="date box HdMob">
                     <%= conta.Date %>
                 </div>
             </div>
@@ -69,7 +92,7 @@
 
             <% credito.forEach(function(conta){ %>
 
-            <div class="line">
+            <div class="line ">
                 <div class="desc box">
                     <%= conta.Descricao %>
                 </div>
@@ -82,7 +105,7 @@
                     <%= conta.Valor %>
                 </div>
 
-                <div class="date box">
+                <div class="date box HdMob">
                     <%= conta.Date %>
                 </div>
 
@@ -104,7 +127,7 @@
                         <%= conta.Valor %>
                     </div>
 
-                    <div class="date box">
+                    <div class="date box HdMob">
                         <%= conta.Date %>
                     </div>
     
@@ -126,11 +149,9 @@
                         
                     </div>
                     
-                    <div class="box" >
-                   
-                    </div>
-                    <div class="box " id="somapl" style="display: none;" >
-                   
+                  
+                    <div class="box HdMob" id="somapl" >
+                            oi
                     </div>
                     
                 </div>
@@ -171,6 +192,8 @@
 
 
     <script src="./calc.js"></script>
+
+    <script src="./hambBTN.js"></script>
 </body>
 
 </html>
