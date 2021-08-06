@@ -5,7 +5,7 @@ var data = new Date()
 var dia     = data.getDate();
 var mes     = data.getMonth();
 var ano4    = data.getFullYear(); 
-var str_data =  '0' + dia + '/' + '0' + (mes+1) + '/' + ano4;
+var str_data =  dia < 9 ?  '0' + dia : dia + '/' + '0' + (mes+1) + '/' + ano4;
 
 
 const credito = new Schema ({
