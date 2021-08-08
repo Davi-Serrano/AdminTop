@@ -1,7 +1,7 @@
 <h1> AdminTop <h1>
 
   <h4>Descrição</h4>
-  <p<Com os conhecimentos adquirido no curso de Administração, fiz um site que facilita o processo de da criação de Balanço, Balancete e Razonete para o admininistrador</p>
+  <p>Com os conhecimentos adquirido no curso de Administração, fiz um site que facilita o processo de da criação de Balanço, Balancete e Razonete para o admininistrador</p>
   
   ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/82523921/128638995-ab6468a9-a7c6-4441-ab68-12e92f220fc9.gif)
   
